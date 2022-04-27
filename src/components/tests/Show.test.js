@@ -41,11 +41,9 @@ test('handleSelect is called when an season is selected', async () => {
 
 test('component renders when no seasons are selected and when rerenders with a season passed in', () => {
     const {rerender} =render(<Show show = {show} selectedSeason= {'none'} />);
-    const selectedSeason = screen.queryAllByTestId('season-option');
     let episodesContainer = screen.queryByTestId('episodes-container')
     expect(episodesContainer).toBeNull()
 
-    // userEvent.click(selectedSeason[1]);
     rerender(<Show show = {show} selectedSeason= {0} />)
     episodesContainer= screen.queryByTestId('episodes-container');
     expect(episodesContainer).toBeInTheDocument();
